@@ -30,7 +30,7 @@ def proof_of_work(last_proof):
     guess_hash = hashlib.sha256(guess).hexdigest()
 
     while valid_proof(guess_hash, proof) is False:
-        proof += 33
+        proof += 1
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
