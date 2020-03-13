@@ -30,6 +30,15 @@ Explain how a blockchain is structured. What are the blocks, what is the chain? 
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
 
+1) The runtime complexity to access an array is O(1), and the runtime complexity to add or remove from the end is O(1) as well. Adding or removing from the front, however, necessitates making a whole new array and then copying stuff into it, so it's O(n). Sometimes when you add to the end of the array a resize is necessary, which is O(n), but as the array gets bigger this will happen less and less often, so it's usually O(1).
+
+2) The worst case scenario is that the next memory recepticles are full, which means the array will have to be created elsewhere at a larger size. Then, values can be moved from the old array to the new array one by one. Thus, it's an O(n) runtime complexity.
+
+3) A blockchain is a series of blocks. Each block is a dictionary that contains relevant info, such as an index, timestamp, list of transactions made, a proof, and the hash of the previous block. Because each block contains the hash of the previous block, one is unable to go back and change information without affecting the current hash. 
+
+4) Proof of work essentially means that the chain will have a difficult problem, and require the clients to attempt to match it. For example, find a number, when hashed together with the previous block, will produce a hash that begins with five 0s. The fact that each block contains the hash of the previous block keeps bad people from changing earlier hashes or cheating. Because of the Byzantine Fault issue, as long as nobody can influence 51% of the blocks, they can't change anything.
+
+
 ## Project Set Up
 
 #### [Hash Tables]
