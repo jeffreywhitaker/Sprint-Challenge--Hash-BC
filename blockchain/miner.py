@@ -23,7 +23,7 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 2344
+    proof = 2344786
     #  TODO: Your code here
 
     guess = str(last_proof).encode()
@@ -49,7 +49,9 @@ def valid_proof(last_hash, proof):
     guess = str(proof).encode()
     guess_hash = hashlib.sha256(guess).hexdigest()
 
-    return guess_hash[6:] == last_hash[:-6]
+    # print("guess " + guess_hash[-6:])
+    # print("last " + last_hash[:6])
+    return guess_hash[:6] == last_hash[-6:]
 
 
 if __name__ == '__main__':
